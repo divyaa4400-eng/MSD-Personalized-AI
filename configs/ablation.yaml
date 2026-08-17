@@ -1,0 +1,19 @@
+base_config: configs/default.yaml
+output_dir: outputs/ablation
+experiments:
+  full_model: {}
+  no_attention:
+    model.fusion_type: mean
+  no_biomechanics:
+    data.disable_biomechanics: true
+  no_clinical:
+    data.disable_clinical: true
+  imaging_only:
+    data.disable_clinical: true
+    data.disable_biomechanics: true
+  no_uncertainty_weighting:
+    training.uncertainty_weighting: false
+  no_residual:
+    model.residual: false
+  no_modality_dropout:
+    data.modality_dropout: 0.0

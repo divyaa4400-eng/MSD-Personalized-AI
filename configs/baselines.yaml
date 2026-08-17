@@ -1,0 +1,17 @@
+base_config: configs/default.yaml
+output_dir: outputs/baselines
+baselines:
+  - logistic_regression
+  - random_forest
+  - svm
+  - clinical_mlp
+  - imaging_only
+  - concat_fusion
+  - gated_attention
+advanced_baselines:
+  enabled: false
+  models: [resnet101, densenet121, vit_b_16]
+classical:
+  random_forest_trees: 300
+  svm_c: 2.0
+  svm_gamma: scale

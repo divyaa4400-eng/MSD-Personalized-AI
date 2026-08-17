@@ -1,0 +1,46 @@
+seed: 20260817
+output_dir: outputs/main
+
+data:
+  n_subjects: 1200
+  image_size: 32
+  development_fraction: 0.85
+  risk_thresholds: [0.34, 0.505]
+  annotation_noise: 0.035
+  missing_rate: 0.03
+  modality_dropout: 0.08
+
+model:
+  image_channels: 1
+  image_feature_dim: 64
+  structured_hidden_dim: 64
+  fusion_dim: 64
+  fusion_type: gated_attention
+  residual: true
+  dropout: 0.20
+  n_classes: 3
+
+training:
+  epochs: 16
+  final_epochs: 20
+  batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  regression_weight: 1.0
+  classification_weight: 1.0
+  uncertainty_weighting: true
+  patience: 4
+  n_folds: 5
+  num_workers: 0
+
+calibration:
+  n_bins: 10
+  bootstrap_samples: 500
+
+explainability:
+  gradcam_examples: 3
+  permutation_repeats: 8
+
+runtime:
+  device: auto
+  deterministic: true

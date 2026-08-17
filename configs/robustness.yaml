@@ -1,1 +1,28 @@
-
+base_config: configs/default.yaml
+output_dir: outputs/robustness
+scenarios:
+  clean: {}
+  missing_mri:
+    missing_modalities: [mri]
+  missing_ct:
+    missing_modalities: [ct]
+  missing_xray:
+    missing_modalities: [xray]
+  missing_clinical:
+    missing_modalities: [clinical]
+  missing_biomechanical:
+    missing_modalities: [biomechanical]
+  missing_mri_ct:
+    missing_modalities: [mri, ct]
+  image_noise_low:
+    image_noise_std: 0.05
+  image_noise_high:
+    image_noise_std: 0.12
+  structured_noise:
+    structured_noise_std: 0.10
+  random_missing_10:
+    random_missing_rate: 0.10
+  random_missing_20:
+    random_missing_rate: 0.20
+  random_missing_30:
+    random_missing_rate: 0.30
